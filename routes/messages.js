@@ -4,7 +4,6 @@ const Message = require("../schemas/messages");
 const { checkLogin } = require("../utils/authHandler");
 const uploadHandler = require("../utils/uploadHandler");
 
-// ─── GET / ───────────────────────────────────────────────────────────────────
 // Lấy tin nhắn cuối cùng của mỗi cuộc trò chuyện mà user hiện tại tham gia
 router.get("/", checkLogin, async (req, res) => {
   try {
@@ -54,7 +53,7 @@ router.get("/", checkLogin, async (req, res) => {
   }
 });
 
-// ─── GET /:userID ─────────────────────────────────────────────────────────────
+
 // Lấy toàn bộ tin nhắn giữa user hiện tại và userID
 router.get("/:userID", checkLogin, async (req, res) => {
   try {
@@ -77,12 +76,7 @@ router.get("/:userID", checkLogin, async (req, res) => {
   }
 });
 
-// ─── POST / ──────────────────────────────────────────────────────────────────
-// Gửi tin nhắn (text hoặc file)
-// Body (multipart/form-data hoặc JSON):
-//   - to: userID đích
-//   - text: nội dung (nếu gửi text)
-//   - file: file upload (nếu gửi file)
+
 router.post(
   "/",
   checkLogin,
